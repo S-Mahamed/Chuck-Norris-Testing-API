@@ -2,24 +2,16 @@
 package com.sparta.sumaya;
 
 import java.util.List;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+
 
 public class ChuckPojo {
 
-    @Expose
     private List<Object> categories;
-    @SerializedName("created_at")
     private String createdAt;
-    @SerializedName("icon_url")
     private String iconUrl;
-    @Expose
     private String id;
-    @SerializedName("updated_at")
     private String updatedAt;
-    @Expose
     private String url;
-    @Expose
     private String value;
 
     public List<Object> getCategories() {

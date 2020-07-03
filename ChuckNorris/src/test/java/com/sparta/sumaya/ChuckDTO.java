@@ -1,16 +1,36 @@
-/*
 package com.sparta.sumaya;
 
 import com.google.gson.JsonObject;
 
 public class ChuckDTO {
-    private JsonObject JSONFile;*/
-/*//*
+    private final ChuckPojo chuckPojo;
 
+    public ChuckDTO(String path) {
+        ChuckReader chuckReader = new ChuckReader();
+        chuckPojo = chuckReader.readChuckNorris(path);
+    }
 
-    public ChuckDTO(String jsonLocation){
-        ChuckReader chuckReader = new ChuckReader(jsonLocation);
-        JSONFile = chuckReader.g
+    public String getCreatedAt() {
+        return chuckPojo.getCreatedAt();
+    }
+
+    public String getIconURL() {
+        return chuckPojo.getIconUrl();
+    }
+
+    public String getId() {
+        return chuckPojo.getId();
+    }
+
+    public String getUpdatedAt() {
+        return chuckPojo.getUpdatedAt();
+    }
+
+    public String getUrl() {
+        return chuckPojo.getUrl();
+    }
+
+    public String getValue() {
+        return chuckPojo.getValue();
     }
 }
-*/

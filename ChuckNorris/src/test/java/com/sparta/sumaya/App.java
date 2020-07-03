@@ -1,3 +1,4 @@
+
 package com.sparta.sumaya;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -9,6 +10,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+
 
 public class App {
     public static void main(String [] args){
@@ -28,4 +35,12 @@ public class App {
         jframe.add(jlabel);
         jframe.setVisible(true);
     }
+    public void serverHeader () throws IOException {
+        URL url = new URL("https://api.chucknorris.io/jokes/random");
+        URLConnection urlConnection = url.openConnection();
+        HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+
+        System.out.println( urlConnection.getHeaderField("Server"));
+    }
+
 }
