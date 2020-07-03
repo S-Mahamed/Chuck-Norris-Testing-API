@@ -1,7 +1,5 @@
 package com.sparta.sumaya;
 
-import com.google.gson.JsonObject;
-
 public class ChuckDTO {
     private final ChuckPojo chuckPojo;
 

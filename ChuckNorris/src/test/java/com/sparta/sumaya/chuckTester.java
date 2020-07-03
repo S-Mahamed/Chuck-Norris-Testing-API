@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 public class chuckTester {
-    ChuckReader chuckReader = new ChuckReader();
-    ChuckPojo chuckTest = chuckReader.readChuckNorris("src\\test\\resources\\chuckNorris.json");
 
     //restAssuredTest
     @Test
@@ -18,7 +16,6 @@ public class chuckTester {
                 .then()
                 .statusCode(200)
                 .assertThat()
-                .contentType("value", String.valueOf())
                 .body("value",equalTo("Light travels at 186,000 miles per second to run away from Chuck Norris."));
 
     }
@@ -32,6 +29,7 @@ public class chuckTester {
 //            .request("GET","https://api.chucknorris.io/jokes/random")
 //            .then()
 //            .statusCode(200)
+//            .assertThat()
 //            .header("Date",equalTo("Thu, 02 Jul 2020 14:41:52 GMT"));
 //}
 
@@ -136,22 +134,36 @@ public class chuckTester {
 
     /////////////JSON TEST////////////////
 
-//    ChuckDTO chuckDTO = new ChuckDTO("src\\test\\resources\\chuckNorris.json");
-//
-//    @Test
-//    public void TestGetValue(){
-//    Assertions.assertEquals("Light travels at 186,000 miles per second to run away from Chuck Norris.",chuckDTO.getValue());
-//}
+    ChuckDTO chuckDTO = new ChuckDTO("src\\test\\resources\\chuckNorris.json");
+
+    @Test
+    public void TestGetCreatedAt(){
+        Assertions.assertTrue(true,chuckDTO.getCreatedAt());
+    }
+    @Test
+    public void TestGetValue(){
+    Assertions.assertEquals("Light travels at 186,000 miles per second to run away from Chuck Norris.",chuckDTO.getValue());
+}
+    @Test
+    public void TestGetID(){
+        Assertions.assertTrue(true,chuckDTO.getId());
+    }
+
 //    @Test
 //    public void testDateDTO(){
 //        Assertions.assertEquals("2020-01-05 13:42:28.984661",chuckDTO.getCreatedAt());
 //    }
-//@Test
-//public void testUpdatedAt(){
-//        Assertions.assertEquals("2020-01-0513:42:28.984661", chuckDTO.getUpdatedAt());
-//}
-//    @Test
-//    public void TestGetIcon(){
-//        Assertions.assertEquals("https://assets.chucknorris.host/img/avatar/chuck-norris.png.",chuckDTO.getIconURL());
-//    }
+@Test
+public void testUpdatedAt(){
+        Assertions.assertEquals("2020-01-0513:42:28.984661", chuckDTO.getUpdatedAt());
+}
+    @Test
+    public void testGetURL(){
+        Assertions.assertTrue(true, chuckDTO.getUpdatedAt());
+    }
+
+    @Test
+    public void TestGetIcon(){
+        Assertions.assertEquals("https://assets.chucknorris.host/img/avatar/chuck-norris.png.",chuckDTO.getIconURL());
+    }
 }
